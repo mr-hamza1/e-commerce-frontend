@@ -67,7 +67,8 @@ const Header = ({ user }) => {
     >        <Toolbar>
           {/* Logo */}
           <Typography
-            variant="h4"
+            variant={{xs : "h5" , md: "h6"}}
+            fontWeight={"bold"}
             component={Link}
             to="/"
             sx={{ textDecoration: "none", color: "inherit", cursor: "pointer" }}
