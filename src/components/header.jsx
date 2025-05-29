@@ -67,11 +67,19 @@ const Header = ({ user }) => {
     >        <Toolbar>
           {/* Logo */}
           <Typography
-            variant={{xs : "h4" , md: "h4"}}
-            fontWeight={"bold"}
+  sx={{
+    textDecoration: "none",
+    color: "inherit",
+    cursor: "pointer",
+    fontSize: {
+      xs: "1.5rem", // Small devices
+      sm: "2rem",   // Medium devices
+      md: "2rem", // Large devices and up
+    },
+  }}
+            fontWeight={5}
             component={Link}
             to="/"
-            sx={{ textDecoration: "none", color: "inherit", cursor: "pointer" }}
           >
             Lootlo
           </Typography>
