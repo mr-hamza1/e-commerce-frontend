@@ -17,24 +17,17 @@ const ProductImageSwiper = ({ images }) => {
   }, []);
 
   return (
-    <Box
-      sx={{
-        position: 'relative',
-        width: '80%',
-        maxWidth: 1000,
-        mx: 'auto',
-        height: '70vh',
-        mb: 15,
-      }}
-      onMouseEnter={() => swiperRef.current?.autoplay?.stop()}
+
+ <Box sx={{ position: 'relative', width: '80%', maxWidth: 1000, mx: 'auto' }} 
+ onMouseEnter={() => swiperRef.current?.autoplay?.stop()}
       onMouseLeave={() => swiperRef.current?.autoplay?.start()}
-    >
-      {/* Navigation Buttons */}
-      <IconButton className="swiper-button-prev" sx={{ position: 'absolute', top: '50%', left: 10, zIndex: 10 }}>
-        <ArrowBackIos sx={{ color: '#8e8e8e', fontSize: 40 }} />
+      >
+      {/* Custom Navigation Buttons */}
+      <IconButton className="swiper-button-prev" sx={{ position: 'absolute', top: '50%', left: 0, zIndex: 10 }}>
+        <ArrowBackIos  sx={{ color: '#8e8e8e', fontSize: { xs: 15, sm: 40 } }} />
       </IconButton>
       <IconButton className="swiper-button-next" sx={{ position: 'absolute', top: '50%', right: 0, zIndex: 10 }}>
-        <ArrowForwardIos sx={{ color: '#8e8e8e', fontSize: 40 }} />
+        <ArrowForwardIos  sx={{ color: '#8e8e8e', fontSize: { xs: 15, sm: 40 } }} />
       </IconButton>
 
       <Swiper

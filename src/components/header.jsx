@@ -67,7 +67,7 @@ const Header = ({ user }) => {
     >        <Toolbar>
           {/* Logo */}
           <Typography
-            variant={{xs : "h5" , md: "h6"}}
+            variant={{xs : "h4" , md: "h4"}}
             fontWeight={"bold"}
             component={Link}
             to="/"
@@ -80,7 +80,7 @@ const Header = ({ user }) => {
 
           {/* Navigation Icons */}
 
-          <Box display="flex" alignItems="center" gap={2}>
+          <Box display="flex" alignItems="center" gap={{xs:1, md:2}}>
             <Tooltip title="Search">
               <IconButton color="inherit" component={Link} to="/search">
                 <SearchIcon />
