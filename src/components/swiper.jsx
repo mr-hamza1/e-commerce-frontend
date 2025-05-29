@@ -27,7 +27,7 @@ const ProductImageSwiper = ({ images }) => {
         <ArrowBackIos  sx={{ color: '#8e8e8e', fontSize: { xs: 10, sm: 40 } }} />
       </IconButton>
       <IconButton className="swiper-button-next" sx={{ position: 'absolute', top: '50%', transform: 'translateY(-10%)', right: 0, zIndex: 10 }}>
-        <ArrowForwardIos size="small"  sx={{ color: '#8e8e8e', fontSize: { xs: 10, sm: 40 } }} />
+        <ArrowForwardIos  sx={{ color: '#8e8e8e', fontSize: { xs: 10, sm: 40 } }} />
       </IconButton>
 
       <Swiper
