@@ -82,9 +82,8 @@ const MainLayout = ({user}) => {
 
       <Suspense fallback={<Loader />}>
         <Routes>
-          <Route path="/" exact element={<Home user={user} />} />
+          <Route path="/"  element={<Home user={user} />} />
           <Route path="/search" element={<Search />} />
-          <Route path="/cart" element={<Cart />} />
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/pay" element={<Checkout />} />
 
@@ -98,10 +97,11 @@ const MainLayout = ({user}) => {
               </ProtectRoute>
             }
           />
-          <Route element={<ProtectRoute user={user} redirect='/'/>}>  
+          <Route element={<ProtectRoute user={user} redirect='/login'/>}>  
            <Route path="/shipping" element={<Shipping />} />
-           <Route path="/favourites" element={<Favourites />} />
            <Route path="/orders" element={<Orders />} />
+           <Route path="/favourites" element={<Favourites />} />
+           <Route path="/cart" element={<Cart />} />
           </Route>
 
 
