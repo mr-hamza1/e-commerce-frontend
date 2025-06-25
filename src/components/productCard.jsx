@@ -199,7 +199,8 @@ useEffect(() => {
           />
         )}
 
-        {/* Floating "Add to Cart" Button with loading state */}
+        {/* Floating "Add to Cart" Button with loading state
+        
         <Box
           className="cart-overlay"
           sx={{
@@ -247,7 +248,7 @@ useEffect(() => {
 
              
            
-        </Box>
+        </Box> */}
       </Box>
 
       {/* Product Details */}
