@@ -86,6 +86,10 @@ const ProductDetails = () => {
   const [addedToCart, setAddedToCart] = useState(false)
   const [zoomDialogOpen, setZoomDialogOpen] = useState(false)
 
+const [colorError, setColorError] = useState(false);
+
+// Submit Handler
+
   // Fetch product data
   const { data, isLoading, isError, error } = useProductDetailsQuery(id)
 
@@ -137,6 +141,13 @@ const ProductDetails = () => {
   }
 
   const handleAddToCart = async () => {
+     if (!selectedColor) {
+    setColorError(true);
+    return;
+  }
+
+  setColorError(false);
+
     if (!user?._id) {
       toast.error("Please login to add items to cart")
       navigate("/login")
@@ -514,35 +525,44 @@ const ProductDetails = () => {
             )}
 
             {/* Color Selection */}
-            {product.details?.colors && product.details.colors.length > 0 && (
-              <Grid sx={{ mb: 3 }}>
-                <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
-                  Select Color
-                </Typography>
-                <Grid sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
-                  {product.details.colors.map((color, index) => (
-                      <Tooltip title={color} key={index}>
-                        <Grid
-                          onClick={() => setSelectedColor(color)}
-                          sx={{
-                            width: 36,
-                            height: 36,
-                            bgcolor: color,
-                            borderRadius: "50%",
-                            cursor: "pointer",
-                            border: selectedColor === color ? "3px solid" : "1px solid",
-                            borderColor: selectedColor === color ? "primary.main" : "divider",
-                            transition: "transform 0.2s ease, border 0.2s ease",
-                            "&:hover": {
-                              transform: "scale(1.1)",
-                            },
-                          }}
-                        />
-                      </Tooltip>
-                  ))}
-                </Grid>
-              </Grid>
-            )}
+           {product.details?.colors && product.details.colors.length > 0 && (
+  <Grid sx={{ mb: 3 }}>
+    <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
+      Select Color *
+    </Typography>
+
+    <Grid sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
+      {product.details.colors.map((color, index) => (
+        <Tooltip title={color} key={index}>
+          <Grid
+            onClick={() => {
+              setSelectedColor(color);
+              setColorError(false); // Clear error on select
+            }}
+            sx={{
+              width: 36,
+              height: 36,
+              bgcolor: color,
+              borderRadius: "50%",
+              cursor: "pointer",
+              border: selectedColor === color ? "3px solid" : "1px solid",
+              borderColor: selectedColor === color ? "primary.main" : "divider",
+              transition: "transform 0.2s ease, border 0.2s ease",
+              "&:hover": {
+                transform: "scale(1.1)",
+              },
+            }}
+          />
+        </Tooltip>
+      ))}
+    </Grid>
+
+    {colorError && (
+      <FormHelperText error>Please select a color before proceeding.</FormHelperText>
+    )}
+  </Grid>
+)}
+
 
             {/* Quantity Selector */}
             <Grid sx={{ mb: 3 }}>

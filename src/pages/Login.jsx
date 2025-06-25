@@ -50,6 +50,8 @@ function Login() {
                 dob: "Mon Jan 01 1900 00:00:00 GMT+0428 (Pakistan Standard Time)",
             }).unwrap();
 
+            console.log(res)
+
 
             if (res) {
                  dispatch(userExist(res.user))
@@ -124,7 +126,7 @@ function Login() {
                 toast.error(message);
             }
         } catch (error) {
-            toast.error("Sign in Failed");
+            toast.error("SignUp Failed");
             console.log(error);
         }
     };

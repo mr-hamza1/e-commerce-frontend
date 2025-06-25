@@ -18,6 +18,7 @@ import {
   Login as LoginIcon,
   Search as SearchIcon,
   ShoppingBag as ShoppingBagIcon,
+  ShoppingCart as ShoppingCartIcon,
   FavoriteBorder,
 } from "@mui/icons-material";
 import { Link } from "react-router-dom";
@@ -74,7 +75,8 @@ const Header = ({ user }) => {
     fontSize: {
       xs: "1.5rem", // Small devices
       sm: "2rem",   // Medium devices
-      md: "2rem", // Large devices and up
+      md: "2.5rem",
+      lg: "2.8rem", // Large devices and up
     },
   }}
             fontWeight={5}
@@ -101,7 +103,7 @@ const Header = ({ user }) => {
             </Tooltip>
             <Tooltip title="Cart">
               <IconButton color="inherit" component={Link} to="/cart">
-                <ShoppingBagIcon />
+                <ShoppingCartIcon />
               </IconButton>
             </Tooltip>
 
