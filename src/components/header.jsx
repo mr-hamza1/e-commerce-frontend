@@ -76,7 +76,7 @@ const Header = ({ user }) => {
       xs: "1.5rem", // Small devices
       sm: "2rem",   // Medium devices
       md: "2.5rem",
-      lg: "4rem", // Large devices and up
+      lg: "3rem", // Large devices and up
     },
   }}
             fontWeight={5}
