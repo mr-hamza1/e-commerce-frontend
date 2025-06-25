@@ -18,6 +18,7 @@ import {
   Login as LoginIcon,
   Search as SearchIcon,
   ShoppingBag as ShoppingBagIcon,
+  ShoppingCart as ShoppingCartIcon,
   FavoriteBorder,
 } from "@mui/icons-material";
 import { Link } from "react-router-dom";
@@ -67,11 +68,20 @@ const Header = ({ user }) => {
     >        <Toolbar>
           {/* Logo */}
           <Typography
-            variant={{xs : "h4" , md: "h4"}}
-            fontWeight={"bold"}
+  sx={{
+    textDecoration: "none",
+    color: "inherit",
+    cursor: "pointer",
+    fontSize: {
+      xs: "1.5rem", // Small devices
+      sm: "2rem",   // Medium devices
+      md: "2.5rem",
+      lg: "4rem", // Large devices and up
+    },
+  }}
+            fontWeight={5}
             component={Link}
             to="/"
-            sx={{ textDecoration: "none", color: "inherit", cursor: "pointer" }}
           >
             Lootlo
           </Typography>
@@ -93,7 +103,7 @@ const Header = ({ user }) => {
             </Tooltip>
             <Tooltip title="Cart">
               <IconButton color="inherit" component={Link} to="/cart">
-                <ShoppingBagIcon />
+                <ShoppingCartIcon />
               </IconButton>
             </Tooltip>
 
