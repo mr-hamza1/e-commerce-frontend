@@ -141,10 +141,14 @@ const [colorError, setColorError] = useState(false);
   }
 
   const handleAddToCart = async () => {
-     if (!selectedColor) {
+      console.log("!!!!!!!!!!!!!!!!!!!!!")
+
+     if (data?.product?.details?.colors.length > 0 && !selectedColor) {
     setColorError(true);
     return;
   }
+
+  console.log("!!!!!!!!!!!!!!!!kdkdfk!!!!!")
 
   setColorError(false);
 
@@ -154,7 +158,7 @@ const [colorError, setColorError] = useState(false);
       return
     }
 
-    if (data?.product?.category === "clothing" && !selectedSize) {
+    if (data?.product?.category === "fashion" && !selectedSize) {
       toast.error("Please select a size")
       return
     }

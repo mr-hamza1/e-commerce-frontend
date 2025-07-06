@@ -154,7 +154,7 @@ useEffect(() => {
         onClick={handleAddToWishlist}
         size="small"
       >
-        {isWishlisted ? (
+        { user._id === data?.wish?.userId && isWishlisted ? (
           <FavoriteIcon fontSize="small" color="error" />
         ) : (
           <FavoriteBorderIcon fontSize="small" color="action" />

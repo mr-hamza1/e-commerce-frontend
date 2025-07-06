@@ -241,7 +241,6 @@ const images = [
       <Box 
         sx={{
           width: "100vw",
-          borderRadius: "1rem",
           position: "relative",
           left: "50%",
           right: "50%",

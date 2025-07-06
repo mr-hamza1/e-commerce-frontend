@@ -23,13 +23,37 @@ const ProductImageSwiper = ({ images }) => {
       onMouseLeave={() => swiperRef.current?.autoplay?.start()}
       >
       {/* Custom Navigation Buttons */}
-      <IconButton className="swiper-button-prev" 
-       sx={{ position: 'absolute', top: '50%', left: 0,transform: 'translateY(-10%)',  zIndex: 10, }}>
-        <ArrowBackIos  sx={{ color: '#8e8e8e', fontSize: { xs: 10, sm: 40 }, }} />
-      </IconButton>
-      <IconButton className="swiper-button-next" sx={{ position: 'absolute', top: '50%', transform: 'translateY(-10%)', right: 0, zIndex: 10 }}>
-        <ArrowForwardIos  sx={{ color: '#8e8e8e', fontSize: { xs: 10, sm: 40 } }} />
-      </IconButton>
+
+
+  <IconButton
+  className="swiper-button-prev custom-swiper-nav"
+  sx={{
+    position: 'absolute',
+    top: '50%',
+    left: 0,
+    transform: 'translateY(-10%)',
+    zIndex: 10,
+    display: { xs: 'none !important',  md: 'flex !important' }, // hide on xs
+  }}
+>
+  <ArrowBackIos sx={{ color: '#8e8e8e', fontSize: { xs: 10, sm: 40 } ,display: { xs: 'none', md: 'flex' }}
+} />
+</IconButton>
+
+<IconButton
+  className="swiper-button-next custom-swiper-nav"
+  sx={{
+    position: 'absolute',
+    top: '50%',
+    right: 0,
+    transform: 'translateY(-10%)',
+    zIndex: 10,
+    display: { xs: 'none !important',  md: 'flex !important' }, // hide on xs
+  }}
+>
+  <ArrowForwardIos sx={{ color: '#8e8e8e', fontSize: { xs: 10, sm: 40 },display: { xs: 'none', md: 'flex' }}} />
+</IconButton>
+
 
       <Swiper
         modules={[Navigation, Autoplay]}
