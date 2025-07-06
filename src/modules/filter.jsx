@@ -5,15 +5,15 @@ import { useErrors } from '../Hooks/Hook'
 import { useEffect } from 'react'
 import {  useNavigate } from 'react-router-dom'
 
-const Filter = ({sort, setSort, maxPrice, setMaxPrice, category, setCategory}) => {
+const Filter = ({sort, setSort, maxPrice, setMaxPrice, category, setCategory, searchCategory}) => {
 
       const [categories , setCategories] = useState([])
 
-      const navigate = useNavigate()
 
       const { data, isLoading, isError, error } = useCategoriesQuery();
        useErrors([{ isError, error }]);
-
+    
+       console.log(data)
          
        useEffect(() => {
          if (data?.categories) {
@@ -60,6 +60,7 @@ const Filter = ({sort, setSort, maxPrice, setMaxPrice, category, setCategory}) =
    value={maxPrice}
    onChange={(e)=>{
      setMaxPrice(e.target.value)
+     
    }}
    aria-labelledby="max-price-slider"
    min={0}
@@ -77,9 +78,10 @@ const Filter = ({sort, setSort, maxPrice, setMaxPrice, category, setCategory}) =
    name="Category"
    value={category}
    onChange={(e)=>{  setCategory(e.target.value)
+      window.history.replaceState({}, document.title, "/search");
+
    }}
  >
-   <MenuItem value={"All"} >All</MenuItem>
    {
     isLoading? <Skeleton /> :
    categories?.map((i) => (

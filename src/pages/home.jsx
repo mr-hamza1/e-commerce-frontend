@@ -136,21 +136,28 @@ const images = [
       name: "Electronics",
       image: "https://images.unsplash.com/photo-1498049794561-7780e7231661?w=300",
       count: "120+ Products",
+      link: "ELECTRONICS"
     },
     {
       name: "Fashion",
       image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=300",
       count: "85+ Products",
+            link: "FASHION"
+
     },
     {
       name: "Beauty",
       image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=300",
       count: "65+ Products",
+            link: "BEAUTY"
+
     },
     {
       name: "Sports",
       image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300",
       count: "45+ Products",
+            link: "SPORTS"
+
     },
   ]
 
@@ -327,7 +334,10 @@ const images = [
             <Typography variant="h4" fontWeight="bold">
               Shop by Category
             </Typography>
-            <Button endIcon={<ArrowForward />} sx={{ textTransform: "none" }}>
+            <Button endIcon={<ArrowForward />} sx={{ textTransform: "none" }}
+                          component={Link}
+              to={`/search`}
+            >
               View All Categories
             </Button>
           </Box>
@@ -336,9 +346,11 @@ const images = [
             {categories.map((category, index) => (
               <Grid item xs={6} md={3} key={index}>
                 <Card
+              component={Link}
+              to={`/search?category=${category.link}`}
                   sx={{
                     position: "relative",
-                    borderRadius: 3,
+                    borderRadius: 4,
                     overflow: "hidden",
                     cursor: "pointer",
                     transition: "all 0.3s ease",
@@ -356,6 +368,8 @@ const images = [
                       width: "100%",
                       height: 200,
                       objectFit: "cover",
+                                          borderRadius: 4,
+
                     }}
                   />
                   <Box
@@ -366,6 +380,8 @@ const images = [
                       right: 0,
                       background: "linear-gradient(transparent, rgba(0,0,0,0.8))",
                       color: "white",
+                                          borderRadius: 4,
+
                       p: 2,
                     }}
                   >

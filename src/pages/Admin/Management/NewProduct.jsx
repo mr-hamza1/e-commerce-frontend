@@ -233,9 +233,10 @@ const NewProduct = () => {
                   <FormControl fullWidth required error={!!errors.category}>
                     <InputLabel>Category</InputLabel>
                     <Select value={category} label="Category" onChange={(e) => setCategory(e.target.value)}>
-                      <MenuItem value="clothing">Clothing</MenuItem>
-                      <MenuItem value="beauty">Beauty</MenuItem>
-                                            <MenuItem value="technology">Technology</MenuItem>
+                      <MenuItem value="fashion">fashion</MenuItem>
+                      <MenuItem value="beauty">beauty</MenuItem>
+                                            <MenuItem value="electronics">electronics</MenuItem>
+                                            <MenuItem value="sports">sports</MenuItem>
 
                     </Select>
                     {errors.category && <FormHelperText>{errors.category}</FormHelperText>}

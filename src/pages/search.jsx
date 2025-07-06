@@ -13,12 +13,19 @@ const Search = () => {
 
     const [searchParams] = useSearchParams();
      const  searchElement = searchParams.get("q"); 
+     const  searchCategory = searchParams.get("category"); 
+
+const searchCategoryForHomePage = searchCategory?.toLowerCase();
+
+
+
+
 
 
   const [search, setSearch] = useState(searchElement || "")
   const [price , setPrice] = useState("600000")
   const [sort , setSort] = useState("")
-  const [category , setCategory] = useState("")
+  const [category , setCategory] = useState(searchCategoryForHomePage || "")
   const [menu, setMenu] = useState(false)
   const [products, setProducts] = useState([])
   const [page, setPage] = useState(1)
@@ -75,6 +82,7 @@ const addToCartHandler = (cartItem) =>{
            setMaxPrice= {setPrice}
            category={category}
            setCategory={setCategory}
+           searchCategory={searchCategory}
            />
         </Drawer>
 
@@ -95,6 +103,7 @@ const addToCartHandler = (cartItem) =>{
            setMaxPrice= {setPrice}
            category={category}
            setCategory={setCategory}
+           searchCategory={searchCategory}
            />
         </Box>
 
@@ -106,7 +115,11 @@ const addToCartHandler = (cartItem) =>{
             fullWidth 
             variant="filled"
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={ (e) => {
+              setSearch(e.target.value)
+               window.history.replaceState({}, document.title, "/search");
+               setCategory("")              
+}}
           />
 
           {/* Product Grid */}
