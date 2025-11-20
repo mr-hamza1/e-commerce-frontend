@@ -42,17 +42,23 @@ const Header = ({ user }) => {
     setAnchorEl(null);
   };
 
-  const logoutHandler = async() => {
-    try {
-      const {data} = await axios.post(`${server}/api/v1/user/logout`, { withCredentials: true })
-      console.log(data)
-      dispatch(userNotExist());
-      toast.success(data.message);
-    } catch (error) {
-      toast.error(error || "Something Went Wrong");
-    }
-    handleClose();
-  };
+const logoutHandler = async() => {
+  try {
+    const { data } = await axios.post(
+      `${server}/api/v1/user/logout`,
+      {},                               // empty body
+      { withCredentials: true }         // ✔ correct place!
+    );
+
+    console.log(data);
+    dispatch(userNotExist());
+    toast.success(data.message);
+  } catch (error) {
+    toast.error(error?.response?.data?.message || "Something Went Wrong");
+  }
+
+  handleClose();
+};
 
   return (
     <Box height={"4rem"}>
